@@ -21,8 +21,9 @@ internal class Stream : IStream
         }
     }
 
-    public void AddEvent<T>(T @event) where T : class =>
-        _dbContext.Events.Add(new Event
+    public void AddEvent<T>(T @event) where T : class
+    {
+        var evnt = new Event
         {
             Id = Guid.NewGuid(),
             StreamId = Id,
@@ -30,5 +31,8 @@ internal class Stream : IStream
             Data = JsonSerializer.SerializeToUtf8Bytes(@event, @event.GetType()),
             DotnetType = @event.GetType().FullName!,
             Timestamp = DateTime.UtcNow
-        });
+        };
+        _events.Add(evnt);
+        _dbContext.Events.Add(evnt);
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using CustomEventSourcing;
+using CustomEventSourcing.Lib;
 using CustomEventSourcing.Lib.Internal;
 using CustomEventSourcing.Procurement;
 
@@ -21,4 +22,6 @@ stream.AddEvent(new OrderCreated(orderId, "Acme, Inc"));
 stream.AddEvent(new ItemAdded("Demand Forecasting Best Practices", 34.99m, 1));
 stream.AddEvent(new ItemAdded("Implementing Domain Driven Design", 54.99m, 1));
 stream.AddEvent(new OrderSubmitted());
+var order = stream.ConstructFromStream<Order>();
+
 await store.SaveChangesAsync();
