@@ -5,6 +5,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{79156A1D-3B0D-4C0F-ADCF-7CE7366D086B}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Readme.md = Readme.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomEventSourcing.SourceGenerators", "CustomEventSourcing.SourceGenerators\CustomEventSourcing.SourceGenerators.csproj", "{E5F378EF-B813-4125-BC35-0687E5177340}"

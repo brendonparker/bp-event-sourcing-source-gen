@@ -7,6 +7,6 @@ public sealed record OrderCreated(
 public sealed record ItemAdded(
     string ItemNumber,
     decimal Price,
-    int Quantity);
+    int Quantity = 1);
 
 public sealed record OrderSubmitted;
