@@ -1,4 +1,5 @@
 using CustomEventSourcing;
+using CustomEventSourcing.Lib;
 using CustomEventSourcing.Lib.Internal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;

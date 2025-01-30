@@ -1,4 +1,4 @@
-namespace Microsoft.Extensions.DependencyInjection;
+namespace CustomEventSourcing.Lib;
 
 public interface IDatabaseSetup
 {

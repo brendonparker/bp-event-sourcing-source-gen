@@ -1,4 +1,4 @@
-namespace CustomEventSourcing;
+namespace CustomEventSourcing.Lib;
 
 public sealed class Event
 {

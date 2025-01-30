@@ -50,7 +50,7 @@ internal class CustomEventSourcingIncrementalSourceGenerator : IIncrementalGener
                 yield return new ApplyMethod(typeName, "", singleParamCtor.Parameters[0].Type.ToDisplayString(),
                     IsConstructor: true);
             }
-            
+
             foreach (var applyMethod in
                      type
                          .GetMembers("Apply")
@@ -76,6 +76,7 @@ internal class CustomEventSourcingIncrementalSourceGenerator : IIncrementalGener
                   #nullable enable
 
                   using System.Text.Json;
+                  using CustomEventSourcing.Lib;
 
                   namespace CustomEventSourcing.Generated;
 
@@ -108,12 +109,10 @@ internal class CustomEventSourcingIncrementalSourceGenerator : IIncrementalGener
                         $$"""
                                           case "{{method.ParameterType}}":
                                               if (result == null) throw new InvalidOperationException("Object has not been constructed yet"); 
-                                              result.Apply(JsonSerializer.Deserialize<{{method.ParameterType}}>(@event.Data)!);
+                                              result.{{method.MethodName}}(JsonSerializer.Deserialize<{{method.ParameterType}}>(@event.Data)!);
                                               break;
-                          """);    
+                          """);
                 }
-                
-                
             }
 
             sb.AppendLine(
@@ -170,7 +169,8 @@ internal class CustomEventSourcingIncrementalSourceGenerator : IIncrementalGener
     }
 }
 
-public record struct ApplyMethod(string TypeName, string MethodName, string ParameterType, bool IsConstructor = false)
-{
-    public static readonly ApplyMethod NULL = new("", "", "");
-}
+public record struct ApplyMethod(
+    string TypeName,
+    string MethodName,
+    string ParameterType,
+    bool IsConstructor = false);

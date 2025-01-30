@@ -1,4 +1,5 @@
 using System.Text.Json;
+using CustomEventSourcing.Lib;
 
 namespace CustomEventSourcing.Procurement;
 

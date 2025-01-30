@@ -5,6 +5,8 @@ namespace CustomEventSourcing.Lib;
 
 public static class StreamExtensions
 {
+    // Just for demo purposes.
+    // You could construct the object from the stream using reflection, but that's bleh
     public static T ConstructFromStream<T>(this IStream stream) where T : class
     {
         if (stream.Events.Count == 0) throw new InvalidOperationException("No events");
