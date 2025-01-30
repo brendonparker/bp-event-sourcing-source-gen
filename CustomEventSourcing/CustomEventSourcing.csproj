@@ -9,8 +9,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="EFCore.NamingConventions" Version="8.0.3" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.12" />
+      <ProjectReference Include="..\CustomEventSourcing.Lib\CustomEventSourcing.Lib.csproj" />
+        <ProjectReference Include="..\CustomEventSourcing.SourceGenerators\CustomEventSourcing.SourceGenerators.csproj"
+                          OutputItemType="Analyzer"
+                          ReferenceOutputAssembly="false"/>
     </ItemGroup>
 
 </Project>

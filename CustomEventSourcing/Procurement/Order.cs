@@ -3,7 +3,7 @@ namespace CustomEventSourcing.Procurement;
 public class Order
 {
     public Guid Id { get; }
-    public string CustomerName { get; set; }
+    public string CustomerName { get; private set; }
     public string Status { get; private set; } = "In Progress";
 
     private readonly List<OrderLine> _lines = [];

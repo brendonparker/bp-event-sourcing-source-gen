@@ -14,7 +14,7 @@ public static class ServiceCollectionExtensions
             opts.UseSqlite(connectionString)
                 .UseSnakeCaseNamingConvention();
         });
-
+        services.AddTransient<IDatabaseSetup, DefaultDatabaseSetup>();
         services.TryAddTransient<IStore, DefaultStore>();
     }
 }

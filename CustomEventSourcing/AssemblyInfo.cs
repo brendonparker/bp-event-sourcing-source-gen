@@ -1,0 +1,1 @@
+[assembly: CustomEventSourcing.AllowConstructionFromEvents(typeof(CustomEventSourcing.Procurement.Order))]
