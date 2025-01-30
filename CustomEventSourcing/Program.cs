@@ -1,4 +1,5 @@
-﻿using CustomEventSourcing;
+﻿using System.Collections.Concurrent;
+using CustomEventSourcing;
 using CustomEventSourcing.Lib;
 using CustomEventSourcing.Procurement;
 

@@ -70,6 +70,8 @@ internal class CustomEventSourcingIncrementalSourceGenerator : IIncrementalGener
             var typeName = group.Key;
             var className = group.Key.Replace('.', '_');
 
+            var defaultCtor = group.Any(x => x.IsConstructor) ? "null" : "new()";
+            
             var sb = new StringBuilder();
             sb.AppendLine(
                 $$"""
@@ -84,7 +86,7 @@ internal class CustomEventSourcingIncrementalSourceGenerator : IIncrementalGener
                   {
                       public static {{typeName}} {{className}}_FromEvents(IReadOnlyList<Event> events)
                       {
-                          {{typeName}}? result = null;
+                          {{typeName}}? result = {{defaultCtor}};
                           foreach(var @event in events)
                           {
                               switch (@event.DotnetType)
